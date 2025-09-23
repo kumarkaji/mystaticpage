@@ -8,6 +8,27 @@
 <body>
   <h1>Hello World 🌍</h1>
   <p>This page is hosted on Azure Storage Static Website.</p>
+  <h2>Astronomy Picture of the Day 🌠</h2>
+  <div id="apod">
+    <p>Loading NASA image...</p>
+  </div>
+
+  <script>
+    fetch('/api/nasa')
+      .then(res => res.json())
+      .then(data => {
+        const apod = document.getElementById('apod');
+        apod.innerHTML = `
+          <h3>${data.title}</h3>
+          <img src="${data.url}" alt="${data.title}" style="max-width: 100%; height: auto;" />
+          <p>${data.explanation}</p>
+          <p><small>${data.date}</small></p>
+        `;
+      })
+      .catch(err => {
+        document.getElementById('apod').innerHTML = `<p>Could not load NASA image 😢</p>`;
+      });
+  </script>
 </body>
 </html>
 
