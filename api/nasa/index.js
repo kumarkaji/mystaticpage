@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 module.exports = async function (context, req) {
-  const apiKey = process.env.NASA_API_KEY || "37e4a43c-b33e-4574-b210-0ae990391261";
+  const apiKey = process.env.NASA_API_KEY || "KANKNjQmUpKYnuayvv9I27xllUMAPcUMvL5BOi1d";
 
   try {
     const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
